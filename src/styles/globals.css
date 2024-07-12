@@ -1,33 +1,110 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px 20px;
+  position: relative;
+}
+.left-section {
+  display: flex;
+  align-items: center;
+}
+.right-section {
+  display: flex;
+  align-items: center;
+}
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  margin-right: 20px;
+}
+.navbar .menu {
+  display: flex;
+  align-items: center;
+}
+.navbar a {
+  color: #000;
+  text-decoration: none;
+  padding: 14px 20px;
+  display: block;
+}
+.navbar a:hover {
+  color: #575757;
+}
+.navbar .hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.navbar .search-icon {
+  display: none;
+  color: #000;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.navbar .hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  margin: 4px 0;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+}
+.search-box {
+  padding: 10px 20px;
+  background-color: #dcdbdb;
+  border: none;
+  border-radius: 4px;
+}
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+}
+.mobile-menu a {
+  text-align: center;
+}
+.open {
+  display: flex !important;
+  flex-direction: column;
+  background-color: #333;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+}
+@media (max-width: 768px) {
+  .navbar .menu {
+    display: none;
+  }
+  .navbar .hamburger {
+    display: flex;
+  }
+  .mobile-menu {
+    display: flex;
+  }
+  .search-container {
+    display: none;
+  }
+  .navbar .search-icon {
+    display: block;
   }
 }
